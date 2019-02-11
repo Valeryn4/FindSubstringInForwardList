@@ -7,7 +7,7 @@ using IndexLeftRight = std::pair<int, int>; //индексы левого и п�
 using LeftRightEqual = std::pair<IndexLeftRight, int>; //длина подстроки, начало подстроки - определенный индекс
 
 
-std::list <LeftRightEqual> firndSumString(const std::forward_list<char> left, const std::forward_list<char> right)
+std::list <LeftRightEqual> findSubString(const std::forward_list<char> left, const std::forward_list<char> right)
 {
     std::list <LeftRightEqual > finding_substring;
 
@@ -118,7 +118,7 @@ int main()
     std::forward_list<char> a = { 'a', 'b', 'c', 'd', 'e', 'r', 't' };
     std::forward_list<char> b = { 'c', 'a', 'b', 't', 'z', 'f', 'd', 'e' };
 
-    auto result = firndSumString(a, b);
+    auto result = findSubString(a, b);
 
     for (auto ch : a)
         std::cout << ch << " ";
