@@ -1,10 +1,10 @@
-
+п»ї
 #include <list>
 #include <iostream>
 #include <forward_list>
 
-using IndexLeftRight = std::pair<int, int>; //индексы левого и правого листа
-using LeftRightEqual = std::pair<IndexLeftRight, int>; //длина подстроки, начало подстроки - определенный индекс
+using IndexLeftRight = std::pair<int, int>; //РёРЅРґРµРєСЃС‹ Р»РµРІРѕРіРѕ Рё РїСЂР°РІРѕРіРѕ Р»РёСЃС‚Р°
+using LeftRightEqual = std::pair<IndexLeftRight, int>; //РґР»РёРЅР° РїРѕРґСЃС‚СЂРѕРєРё, РЅР°С‡Р°Р»Рѕ РїРѕРґСЃС‚СЂРѕРєРё - РѕРїСЂРµРґРµР»РµРЅРЅС‹Р№ РёРЅРґРµРєСЃ
 
 
 std::list <LeftRightEqual> firndSumString(const std::forward_list<char> left, const std::forward_list<char> right)
@@ -21,11 +21,11 @@ std::list <LeftRightEqual> firndSumString(const std::forward_list<char> left, co
     tempFind.first.second = 0;
 
     int indexLeft = 0;
-    //начинаем перебирать первый писок
+    //РЅР°С‡РёРЅР°РµРј РїРµСЂРµР±РёСЂР°С‚СЊ РїРµСЂРІС‹Р№ РїРёСЃРѕРє
     for (auto lIt = left.begin(); lIt != left.end(); )
     {
 
-        //если результатов с прошлой итерации нет - обнуляем индекс
+        //РµСЃР»Рё СЂРµР·СѓР»СЊС‚Р°С‚РѕРІ СЃ РїСЂРѕС€Р»РѕР№ РёС‚РµСЂР°С†РёРё РЅРµС‚ - РѕР±РЅСѓР»СЏРµРј РёРЅРґРµРєСЃ
         if (tempFind.second == 0)
         {
             tempFind.first.first = indexLeft;
@@ -33,47 +33,47 @@ std::list <LeftRightEqual> firndSumString(const std::forward_list<char> left, co
         
         int indexRight = 0;
         
-        //начинаем проходиться по второму списку.
+        //РЅР°С‡РёРЅР°РµРј РїСЂРѕС…РѕРґРёС‚СЊСЃСЏ РїРѕ РІС‚РѕСЂРѕРјСѓ СЃРїРёСЃРєСѓ.
         auto tmpIt = lIt;
         
         for (auto rIt = right.begin(); rIt != right.end(); rIt++)
         {
             if (tmpIt == left.end())
                 break;
-            //если подстрака все еще не найдена
+            //РµСЃР»Рё РїРѕРґСЃС‚СЂР°РєР° РІСЃРµ РµС‰Рµ РЅРµ РЅР°Р№РґРµРЅР°
             if (tempFind.second == 0)
             {
-                //передвигаем индекс дальше
+                //РїРµСЂРµРґРІРёРіР°РµРј РёРЅРґРµРєСЃ РґР°Р»СЊС€Рµ
                 tempFind.first.second = indexRight;
             }
             
-            //если совподнения найдены
+            //РµСЃР»Рё СЃРѕРІРїРѕРґРЅРµРЅРёСЏ РЅР°Р№РґРµРЅС‹
             if (*tmpIt == *rIt)
             {
-                //увеличиваем счетчик
+                //СѓРІРµР»РёС‡РёРІР°РµРј СЃС‡РµС‚С‡РёРє
                 tempFind.second++;
                 
-                //если первый список все еще не закончился
+                //РµСЃР»Рё РїРµСЂРІС‹Р№ СЃРїРёСЃРѕРє РІСЃРµ РµС‰Рµ РЅРµ Р·Р°РєРѕРЅС‡РёР»СЃСЏ
                 if (tmpIt != left.end())
                 {
-                    //передвигаем итератор первого списка
+                    //РїРµСЂРµРґРІРёРіР°РµРј РёС‚РµСЂР°С‚РѕСЂ РїРµСЂРІРѕРіРѕ СЃРїРёСЃРєР°
                     tmpIt++;
                 }
-                else //иначе выход
+                else //РёРЅР°С‡Рµ РІС‹С…РѕРґ
                 {
                     break;
                 }
             }
-            else //если символы разные - подстрока закончилась
+            else //РµСЃР»Рё СЃРёРјРІРѕР»С‹ СЂР°Р·РЅС‹Рµ - РїРѕРґСЃС‚СЂРѕРєР° Р·Р°РєРѕРЅС‡РёР»Р°СЃСЊ
             {
                 if (tempFind.second != 0)
                     break;
             }
-            //обновляем индкс второо списка
+            //РѕР±РЅРѕРІР»СЏРµРј РёРЅРґРєСЃ РІС‚РѕСЂРѕРѕ СЃРїРёСЃРєР°
             indexRight++;
         }
 
-        //если подстрока не нулевая - сохраняем результат
+        //РµСЃР»Рё РїРѕРґСЃС‚СЂРѕРєР° РЅРµ РЅСѓР»РµРІР°СЏ - СЃРѕС…СЂР°РЅСЏРµРј СЂРµР·СѓР»СЊС‚Р°С‚
         if (tempFind.second > 0)
         {
             bool isContains = false;
@@ -122,7 +122,7 @@ int main()
 
     for (auto ch : a)
         std::cout << ch << " ";
-    std::cout << std::endl;
+    std::cout << std::endl; 
     for (auto ch : b)
         std::cout << ch << " ";
     std::cout << std::endl;
